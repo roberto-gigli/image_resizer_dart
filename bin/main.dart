@@ -5,12 +5,9 @@ import 'package:image_resizer_dart/image_resizer_dart.dart'
     as image_resizer_lib;
 
 final argParser = ArgParser()
-  ..addOption(
-    "imagePath",
-    mandatory: true,
-  )
-  ..addOption("width", mandatory: true)
-  ..addOption("height", mandatory: true)
+  ..addOption("imagePath", abbr: "i")
+  ..addOption("width", abbr: "w")
+  ..addOption("height", abbr: "h")
   ..addOption("maintainAspect", defaultsTo: "true", allowed: ["true", "false"]);
 
 void main(List<String> arguments) {
@@ -47,7 +44,7 @@ void main(List<String> arguments) {
 
   stopwatch.stop();
 
-  print("Time taker: ${stopwatch.elapsed}");
+  print("Time taken: ${stopwatch.elapsed}");
 
   final extension = result.format.extensions.firstOrNull;
   if (extension == null) throw Exception("Could not determine image extension");
