@@ -41,7 +41,7 @@ import 'package:path/path.dart';
 }
 
 ImageFormat imageFormatByExtension(String path) {
-  final ext = extension(path);
+  final ext = extension(path).replaceFirst(".", "");
 
   return ImageFormat.values.firstWhere(
     (element) => element.extensions.contains(ext),
